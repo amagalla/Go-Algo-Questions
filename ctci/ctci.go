@@ -1,5 +1,10 @@
 package ctci
 
+import (
+	"strings"
+	"unicode/utf8"
+)
+
 func IsUnique(str string) bool {
 	// create a map
 	charMap := make(map[string]bool)
@@ -61,4 +66,61 @@ func CheckPermutation(str1 string, str2 string) bool {
 	// else
 		// return true
 	return len(charMap) <= 0
+}
+
+func PalindromePermutation(str string) bool {
+	// check if string is empty
+		// return false
+	if len(str) <= 0 {
+		return false
+	}
+
+	// create an empty char map
+	charMap := make(map[string]int)
+
+	// create isOdd with value to false
+	isOdd := false
+
+	// iterate through str
+		// create lower var with value of converted char to lowercase
+		// create ascii var with lowercase ascii value
+
+		// check if ascii value is greater than or equal to lowercase a AND less then or eqaul to lowercase Z ascii values
+			// check if map has lower as key
+				// increment map lower value by 1
+			// else
+				// assign map lower value to 1
+	for _, char := range str {
+		lower := strings.ToLower(string(char))
+		ascii, _ := utf8.DecodeRuneInString(lower)
+		a, _ := utf8.DecodeRuneInString("a")
+		z, _ := utf8.DecodeRuneInString("z")
+
+		if (ascii >= a && ascii <= z) {
+			_, ok := charMap[lower]
+
+			if ok {
+				charMap[lower]++
+			} else {
+				charMap[lower] = 1
+			}
+		}
+		
+	}
+
+	// iterate through char map
+		// check if char map value is odd
+			// check if isOdd is true
+				// return false
+			// set isOdd with value of true
+	for _, element := range charMap {
+		if (element % 2 != 0) {
+			if isOdd {
+				return false
+			}
+			isOdd = true
+		}
+	}
+	// return isOdd
+	return isOdd
 }

@@ -31,4 +31,32 @@ func main() {
 
 	fmt.Println("______________________")
 	fmt.Println("")
+
+	/*
+
+	Given a string, write a function to check if it is a permutation
+	of a palindrome. A palindrome is a word or phrase that is the
+	same forward and backwards. A permutation is a rearrangement
+	of letters. The palindrome does not need to be limited to just
+	dictionary words.
+	You can ignore casing and non-letter characters.
+
+	EXAMPLE
+
+	Input: Tact Coa
+
+	Output: True (permutation: "taco cat", "atco cta", etc).
+
+	*/
+
+	fmt.Println(1, ctci.PalindromePermutation("Tact Coa")) // true
+	fmt.Println(2, ctci.PalindromePermutation("T@ac3t   C2o]a")) // true
+	fmt.Println(3, ctci.PalindromePermutation("aabbcddee")) // true
+	fmt.Println(4, ctci.PalindromePermutation("abcdeabfde")) // false
+	fmt.Println(5, ctci.PalindromePermutation("aaaaaa")) // false
+	fmt.Println(6, ctci.PalindromePermutation("aaaaaaa")) // true
+	fmt.Println(7, ctci.PalindromePermutation("")) // false
+
+	fmt.Println("______________________")
+	fmt.Println("")
 }
