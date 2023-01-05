@@ -14,6 +14,7 @@ func main() {
 	fmt.Println(1, ctci.IsUnique("abcd")) // true
 	fmt.Println(2, ctci.IsUnique("abcdabcd")) // false
 	fmt.Println(3, ctci.IsUnique("Hanzi")) // true
+	fmt.Println(4, ctci.IsUnique("")) // false
 
 	fmt.Println("______________________")
 	fmt.Println("")

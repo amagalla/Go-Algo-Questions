@@ -6,6 +6,11 @@ import (
 )
 
 func IsUnique(str string) bool {
+	// check is str is empty
+	if len(str) <= 0 {
+		return false
+	}
+
 	// create a map
 	charMap := make(map[string]bool)
 
