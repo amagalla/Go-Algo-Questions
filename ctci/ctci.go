@@ -129,3 +129,65 @@ func PalindromePermutation(str string) bool {
 	// return isOdd
 	return isOdd
 }
+
+func OneWay(str1 string, str2 string) bool {
+	// check if str2 length is larger than str1 length + 1
+		// return false
+	if len(str2) > len(str1) + 1 {
+		return false
+	}
+
+	// create an empty map
+	charMap := make(map[string]int)
+
+	// create a counter to keep track of number of unused char
+	counter := 0
+
+	// iterate through str1
+		// check if map has char
+			// increment map char value by 1
+		// else
+			// assign map char val to 1
+	for _, char := range str1 {
+		_, ok := charMap[string(char)]
+
+		if ok {
+			charMap[string(char)]++
+		} else {
+			charMap[string(char)] = 1
+		}
+	}
+
+	// iterate through str2
+		// check if map has char
+		// decrement map char value by 1
+		// check if map char value is equal to 0
+			// delete char map
+	for _, char := range str2 {
+		_, ok := charMap[string(char)]
+
+		if ok {
+			charMap[string(char)]--
+			if (charMap[string(char)] <= 0) {
+				delete(charMap, string(char))
+			}
+		} else {
+			counter++
+		}
+	}
+	// test if counter value is greater than 1 (means str1 has inserted more than one char)
+	if counter > 1 {
+		return false
+	}
+
+	// iterate through map
+		// check if value is greater than 1
+			// return false
+	for _, value := range charMap {
+		if value > 1 {
+			return false
+		}
+	}
+
+	return true
+}

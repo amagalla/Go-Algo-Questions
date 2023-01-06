@@ -11,6 +11,9 @@ func main() {
 	
 	// Implement an algorithm to determine if a string has all unique characters.
 
+	fmt.Println("IsUnique")
+	fmt.Println("")
+
 	fmt.Println(1, ctci.IsUnique("abcd")) // true
 	fmt.Println(2, ctci.IsUnique("abcdabcd")) // false
 	fmt.Println(3, ctci.IsUnique("Hanzi")) // true
@@ -21,6 +24,9 @@ func main() {
 
 	// Check Permutation: Given two strings, write a method to decide if one is
 	// as permutation of the other.
+
+	fmt.Println("CheckPermutation")
+	fmt.Println("")
 
 	fmt.Println(1, ctci.CheckPermutation("bad", "dab")) // true
 	fmt.Println(2, ctci.CheckPermutation("like", "ilek")) // true
@@ -50,6 +56,9 @@ func main() {
 
 	*/
 
+	fmt.Println("PalindromePermutation")
+	fmt.Println("")
+
 	fmt.Println(1, ctci.PalindromePermutation("Tact Coa")) // true
 	fmt.Println(2, ctci.PalindromePermutation("T@ac3t   C2o]a")) // true
 	fmt.Println(3, ctci.PalindromePermutation("aabbcddee")) // true
@@ -57,6 +66,38 @@ func main() {
 	fmt.Println(5, ctci.PalindromePermutation("aaaaaa")) // false
 	fmt.Println(6, ctci.PalindromePermutation("aaaaaaa")) // true
 	fmt.Println(7, ctci.PalindromePermutation("")) // false
+
+	fmt.Println("______________________")
+	fmt.Println("")
+
+	/*
+	There are three types of edits that can be performed on strings: insert a character,
+	remove a character, or replace a character. Given two strings, write a function to
+	check if they are one edit (or zero edits) away.
+
+	EXAMPLE
+
+	pale, ple -> true
+	pales, pale -> true
+	pale, bale -> true
+	pale, bake -> false
+
+	*/
+
+	fmt.Println("OneWay")
+	fmt.Println("")
+
+	fmt.Println(1, ctci.OneWay("pale", "pale")) // true
+	fmt.Println(2, ctci.OneWay("pale", "ple")) // true
+	fmt.Println(3, ctci.OneWay("pales", "pale")) // true
+	fmt.Println(4, ctci.OneWay("pale", "bale")) // true
+	fmt.Println(5, ctci.OneWay("e", "a")) // true
+	fmt.Println(6, ctci.OneWay("", "a")) // true
+	fmt.Println(7, ctci.OneWay("a", "")) // true
+	fmt.Println(8, ctci.OneWay("pale", "bake")) // false
+	fmt.Println(9, ctci.OneWay("ke", "bake")) // false
+	fmt.Println(10, ctci.OneWay("baaaaaake", "bake")) // false
+	fmt.Println(11, ctci.OneWay("bake", "baaaaaaaaaake")) // false
 
 	fmt.Println("______________________")
 	fmt.Println("")
