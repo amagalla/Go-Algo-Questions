@@ -101,4 +101,22 @@ func main() {
 
 	fmt.Println("______________________")
 	fmt.Println("")
+	
+	
+	/*
+
+	Implement a method to peform basic string compression using the counts of
+	repeated characters. For example, the string aabcccccaaa would become
+	a2b1c5a3. If the "compressed" string would not become smaller than the
+	original string, your method should return the original string. You can assume
+	the string has only uppercase and lowercase letters (a-z).
+
+	*/
+
+	fmt.Println(1, ctci.StringCompression("aabcccccaaa")) // a2b1c5a3
+	fmt.Println(1, ctci.StringCompression("a")) // a
+	fmt.Println(1, ctci.StringCompression("aa")) // aa
+
+	fmt.Println("______________________")
+	fmt.Println("")
 }

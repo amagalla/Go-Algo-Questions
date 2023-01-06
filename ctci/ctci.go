@@ -1,6 +1,7 @@
 package ctci
 
 import (
+	"strconv"
 	"strings"
 	"unicode/utf8"
 )
@@ -190,4 +191,49 @@ func OneWay(str1 string, str2 string) bool {
 	}
 
 	return true
+}
+
+func StringCompression(str string) string {
+	// create a new empty str
+	var newStr string
+
+	// create a counter
+	counter := 1
+
+	// create prev var
+	var prev string
+
+	// iterate through str
+		// inrement counter by 1
+		// check if char is not equal to char + 1 value
+			// assign char to newStr + counter
+			// set counter to 0
+	for i, val := range str {
+		char := string(val)
+
+		if prev == "" {
+			prev = char
+		}
+
+		if prev == char && i != 0 {
+			counter++
+		}
+
+		if prev != char {
+			newStr += prev + strconv.Itoa(counter)
+			prev = char
+			counter = 1
+		}
+		
+		if prev == char && i + 1 == len(str) {
+			newStr += char + strconv.Itoa(counter)
+		}
+	}
+
+	if len(str) <= len(newStr) {
+		return str
+	}
+
+	// return newStr
+	return newStr
 }
