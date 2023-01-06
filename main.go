@@ -114,6 +114,7 @@ func main() {
 	*/
 
 	fmt.Println(1, ctci.StringCompression("aabcccccaaa")) // a2b1c5a3
+	fmt.Println(1, ctci.StringCompression("aabccccc")) // a2b1c5
 	fmt.Println(1, ctci.StringCompression("a")) // a
 	fmt.Println(1, ctci.StringCompression("aa")) // aa
 

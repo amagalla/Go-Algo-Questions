@@ -211,25 +211,36 @@ func StringCompression(str string) string {
 	for i, val := range str {
 		char := string(val)
 
+		// check if prev is empty
+			// assign prev with value of char
 		if prev == "" {
 			prev = char
 		}
 
+		// check if prev is equal to char and i is not equal to 0 (so first iteration isn't counted)
 		if prev == char && i != 0 {
 			counter++
 		}
 
+		// check if prev is not equal to char
+			// add value of prev with counter to newStr
+			// reassign prev to char
+			// reset counter to 1
 		if prev != char {
 			newStr += prev + strconv.Itoa(counter)
 			prev = char
 			counter = 1
 		}
 		
+		// check if prev is qual to char and i is equal to str length (to get last char index value)
+			// add char with counter to newStr
 		if prev == char && i + 1 == len(str) {
-			newStr += char + strconv.Itoa(counter)
+			newStr += prev + strconv.Itoa(counter)
 		}
 	}
 
+	// check if original string is less than or equal to newStr
+		// return original str
 	if len(str) <= len(newStr) {
 		return str
 	}
