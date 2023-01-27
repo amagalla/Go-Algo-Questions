@@ -19,9 +19,9 @@ func IsUnique(str string) bool {
 
 	for _, char := range str {
 		// check if char is inside charMap
-			// return false
+		// return false
 		if charMap[string(char)] {
-			return false;
+			return false
 			// else
 			// add char to charMap
 		} else {
@@ -38,8 +38,8 @@ func IsUnique(str string) bool {
 func CheckPermutation(str1 string, str2 string) bool {
 
 	// check if length of str1 is not equal to lengh of str2
-		// return false
-	if (len(str1) != len(str2)) {
+	// return false
+	if len(str1) != len(str2) {
 		return false
 	}
 
@@ -47,10 +47,10 @@ func CheckPermutation(str1 string, str2 string) bool {
 	charMap := make(map[string]int)
 
 	// iterate through str1
-		// check if obj has char
-			// increment obj char value by 1
-		// else
-			// add char to obj with value of 1
+	// check if obj has char
+	// increment obj char value by 1
+	// else
+	// add char to obj with value of 1
 	for _, char := range str1 {
 		if charMap[string(char)] >= 1 {
 			charMap[string(char)]++
@@ -60,22 +60,22 @@ func CheckPermutation(str1 string, str2 string) bool {
 	}
 
 	// iterate through str2
-		// check if char is in obj
-			// decrement obj char value by 1
-			// check if obj char value is equal to 0
-				// delete map char
+	// check if char is in obj
+	// decrement obj char value by 1
+	// check if obj char value is equal to 0
+	// delete map char
 	for _, char := range str2 {
 		if charMap[string(char)] >= 1 {
 			charMap[string(char)]--
-			if (charMap[string(char)] == 0) {
+			if charMap[string(char)] == 0 {
 				delete(charMap, string(char))
 			}
 		}
 	}
 	// check if map is not empty
-		// return false
+	// return false
 	// else
-		// return true
+	// return true
 	return len(charMap) <= 0
 }
 
@@ -98,7 +98,7 @@ func CheckPermutation(str1 string, str2 string) bool {
 
 func PalindromePermutation(str string) bool {
 	// check if string is empty
-		// return false
+	// return false
 	if len(str) <= 0 {
 		return false
 	}
@@ -110,21 +110,21 @@ func PalindromePermutation(str string) bool {
 	isOdd := false
 
 	// iterate through str
-		// create lower var with value of converted char to lowercase
-		// create ascii var with lowercase ascii value
+	// create lower var with value of converted char to lowercase
+	// create ascii var with lowercase ascii value
 
-		// check if ascii value is greater than or equal to lowercase a AND less then or eqaul to lowercase Z ascii values
-			// check if map has lower as key
-				// increment map lower value by 1
-			// else
-				// assign map lower value to 1
+	// check if ascii value is greater than or equal to lowercase a AND less then or eqaul to lowercase Z ascii values
+	// check if map has lower as key
+	// increment map lower value by 1
+	// else
+	// assign map lower value to 1
 	for _, char := range str {
 		lower := strings.ToLower(string(char))
 		ascii, _ := utf8.DecodeRuneInString(lower)
 		a, _ := utf8.DecodeRuneInString("a")
 		z, _ := utf8.DecodeRuneInString("z")
 
-		if (ascii >= a && ascii <= z) {
+		if ascii >= a && ascii <= z {
 			_, ok := charMap[lower]
 
 			if ok {
@@ -133,16 +133,16 @@ func PalindromePermutation(str string) bool {
 				charMap[lower] = 1
 			}
 		}
-		
+
 	}
 
 	// iterate through char map
-		// check if char map value is odd
-			// check if isOdd is true
-				// return false
-			// set isOdd with value of true
+	// check if char map value is odd
+	// check if isOdd is true
+	// return false
+	// set isOdd with value of true
 	for _, element := range charMap {
-		if (element % 2 != 0) {
+		if element%2 != 0 {
 			if isOdd {
 				return false
 			}
@@ -169,8 +169,8 @@ func PalindromePermutation(str string) bool {
 
 func OneWay(str1 string, str2 string) bool {
 	// check if str2 length is larger than str1 length + 1
-		// return false
-	if len(str2) > len(str1) + 1 {
+	// return false
+	if len(str2) > len(str1)+1 {
 		return false
 	}
 
@@ -181,10 +181,10 @@ func OneWay(str1 string, str2 string) bool {
 	counter := 0
 
 	// iterate through str1
-		// check if map has char
-			// increment map char value by 1
-		// else
-			// assign map char val to 1
+	// check if map has char
+	// increment map char value by 1
+	// else
+	// assign map char val to 1
 	for _, char := range str1 {
 		_, ok := charMap[string(char)]
 
@@ -196,16 +196,16 @@ func OneWay(str1 string, str2 string) bool {
 	}
 
 	// iterate through str2
-		// check if map has char
-		// decrement map char value by 1
-		// check if map char value is equal to 0
-			// delete char map
+	// check if map has char
+	// decrement map char value by 1
+	// check if map char value is equal to 0
+	// delete char map
 	for _, char := range str2 {
 		_, ok := charMap[string(char)]
 
 		if ok {
 			charMap[string(char)]--
-			if (charMap[string(char)] <= 0) {
+			if charMap[string(char)] <= 0 {
 				delete(charMap, string(char))
 			}
 		} else {
@@ -218,8 +218,8 @@ func OneWay(str1 string, str2 string) bool {
 	}
 
 	// iterate through map
-		// check if value is greater than 1
-			// return false
+	// check if value is greater than 1
+	// return false
 	for _, value := range charMap {
 		if value > 1 {
 			return false
@@ -240,54 +240,58 @@ func OneWay(str1 string, str2 string) bool {
 */
 
 func StringCompression(str string) string {
-	// create a new empty str
-	var newStr string
+	// check if string is empty
+	// return empty str
+	if len(str) == 0 {
+		return str
+	}
 
-	// create a counter
+	// create new string var
+	// create prev string var
+	// create counter var
+	var newStr string
+	var prev string
 	counter := 1
 
-	// create prev var
-	var prev string
-
 	// iterate through str
-		// inrement counter by 1
-		// check if char is not equal to char + 1 value
-			// assign char to newStr + counter
-			// set counter to 0
+	// check if index is 0
+	// prev = char
+	// couninue
+
+	// check if prev == char
+	// increment counter by 1
+
+	// check if prev != char
+	// assign newStr with prev + counter
+	// assign prev with char
+	// assign counter to 0
+
+	// check if index == length of string - 1 && prev == char
+	// assign newStr with prev + counter
 	for i, val := range str {
 		char := string(val)
 
-		// check if prev is empty
-			// assign prev with value of char
-		if prev == "" {
+		if i == 0 {
 			prev = char
+			continue
 		}
 
-		// check if prev is equal to char and i is not equal to 0 (so first iteration isn't counted)
-		if prev == char && i != 0 {
+		if prev == char {
 			counter++
 		}
 
-		// check if prev is not equal to char
-			// add value of prev with counter to newStr
-			// reassign prev to char
-			// reset counter to 1
 		if prev != char {
 			newStr += prev + strconv.Itoa(counter)
 			prev = char
 			counter = 1
 		}
-		
-		// check if prev is qual to char and i is equal to str length (to get last char index value)
-			// add char with counter to newStr
-		if prev == char && i + 1 == len(str) {
+
+		if i == len(str)-1 && prev == char {
 			newStr += prev + strconv.Itoa(counter)
 		}
 	}
 
-	// check if original string is less than or equal to newStr
-		// return original str
-	if len(str) <= len(newStr) {
+	if len(str) <= len(newStr) || len(str) == 1 {
 		return str
 	}
 
